@@ -1,9 +1,14 @@
 // import HomePage from "./pages";
 import Hero from "./components/Hero";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 function App() {
   const [count, setCount] = useState(0);
+  const dumpFunc = null;
+  useCallback(() => {
+    dumpFunc = () => {};
+  }, []);
+
   return (
     <div className="app">
       {/* <HomePage /> */}
@@ -15,7 +20,7 @@ function App() {
       >
         Increase
       </button>
-      <Hero name="Easy yaaa!" />
+      <Hero onClick={dumpFunc} name="Easy yaaa!" />
     </div>
   );
 }
